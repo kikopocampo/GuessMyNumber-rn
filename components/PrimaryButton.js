@@ -1,6 +1,6 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 
-function PrimaryButton({ children }) {
+function PrimaryButton({ children, buttonFunction }) {
   return (
     <View style={style.buttonOuterContainer}>
       <Pressable
@@ -9,7 +9,7 @@ function PrimaryButton({ children }) {
             ? [style.pressed, style.buttonInnerContainer]
             : style.buttonInnerContainer
         }
-        onPress={() => console.log("PRESSED")}
+        onPress={buttonFunction}
       >
         <Text style={style.button}>{children}</Text>
       </Pressable>
@@ -20,7 +20,7 @@ function PrimaryButton({ children }) {
 const style = StyleSheet.create({
   buttonOuterContainer: { borderRadius: 28, margin: 4, overflow: "hidden" },
   buttonInnerContainer: {
-    backgroundColor: "green",
+    backgroundColor: "cream",
     paddingVertical: 8,
     paddingHorizontal: 16,
     elevation: 2,
