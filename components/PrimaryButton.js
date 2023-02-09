@@ -18,16 +18,21 @@ function PrimaryButton({ children, buttonFunction }) {
 }
 
 const style = StyleSheet.create({
-  buttonOuterContainer: { borderRadius: 28, margin: 4, overflow: "hidden" },
-  buttonInnerContainer: {
-    backgroundColor: "cream",
-    paddingVertical: 8,
-    paddingHorizontal: 16,
+  buttonOuterContainer: {
+    borderRadius: 28,
+    margin: 4,
+    overflow: "hidden",
+    borderWidth: 1,
+    backgroundColor: "beige",
     elevation: 2,
     shadowColor: "black",
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
     shadowOpacity: 0.25,
+  },
+  buttonInnerContainer: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
   },
   button: {
     textAlign: "center",
