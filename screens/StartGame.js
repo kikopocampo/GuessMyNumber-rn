@@ -3,6 +3,7 @@ import { useState } from "react";
 import PrimaryButton from "../components/PrimaryButton";
 import Title from "../components/Title";
 import Card from "../components/Card";
+import InstructionText from "../components/InstructionText";
 
 function StartGameScreen({ onPickNumber }) {
   const [enteredNumber, setEnteredNumber] = useState("");
@@ -29,7 +30,7 @@ function StartGameScreen({ onPickNumber }) {
     <View style={styles.rootContainer}>
       <Title>Guess My Number</Title>
       <Card>
-        <Text style={styles.instruction}>Enter a Number</Text>
+        <InstructionText>Enter a Number</InstructionText>
         <TextInput
           value={enteredNumber}
           onChangeText={(enteredText) => setEnteredNumber(enteredText)}
