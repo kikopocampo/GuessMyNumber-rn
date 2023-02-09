@@ -6,6 +6,7 @@ import InstructionText from "../components/InstructionText";
 import NumberContainer from "../components/NumberContainer";
 import PrimaryButton from "../components/PrimaryButton";
 import Title from "../components/Title";
+import GuessLogItem from "../components/GuessLogItem";
 
 function generateRandomNumber(min, max, exclude) {
   const randomNum = Math.floor(Math.random() * (max - min)) + min;
@@ -91,13 +92,15 @@ function GameScreen({ userNumber, gameOverHandler, countRounds }) {
           </View>
         </View>
       </Card>
-      <View>
-        {/* {guessRounds.map((guessRound) => (
-          <Text key={guessRound}>{guessRound}</Text>
-        ))} */}
+      <View style={styles.roundsContainer}>
         <FlatList
           data={guessRounds}
-          renderItem={(itemData) => <Text>{itemData.item}</Text>}
+          renderItem={(itemData) => (
+            <GuessLogItem
+              roundNumber={guessRounds.length - itemData.index}
+              guess={itemData.item}
+            />
+          )}
           keyExtractor={(item) => item}
         />
       </View>
@@ -126,5 +129,8 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flex: 1,
+  },
+  roundsContainer: {
+    padding: 26,
   },
 });
